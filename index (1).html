@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Un pensamiento</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #0d0d0d;
+            color: #d4d4d4;
+            font-family: 'Georgia', serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+            overflow: hidden;
+        }
+        .container {
+            display: none;
+            max-width: 600px;
+            padding: 20px;
+            animation: fadeIn 3s ease-in;
+        }
+        p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            letter-spacing: 0.5px;
+        }
+        .enter-btn {
+            padding: 12px 24px;
+            border: 1px solid #444;
+            background: transparent;
+            color: #aaa;
+            font-family: 'Georgia', serif;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.5s ease;
+            letter-spacing: 1px;
+        }
+        .enter-btn:hover {
+            color: #fff;
+            border-color: #fff;
+            box-shadow: 0 0 15px rgba(255,255,255,0.2);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; filter: blur(5px); }
+            to { opacity: 1; filter: blur(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <button class="enter-btn" id="startBtn">Leer...</button>
+
+    <div class="container" id="content">
+        <p>
+            No pretendo ser un fantasma en la sala,<br>
+            ni el eco de aquellas voces que apagaban la madrugada.<br>
+            Hubo un tiempo donde el reloj no importaba,<br>
+            donde una pantalla encendida era el refugio que bastaba.
+        </p>
+        <p>
+            Me alejé pensando que el silencio era la respuesta,<br>
+            y en la ausencia descubrí lo que la costumbre oculta.<br>
+            No era solo la compañía o la risa compartida,<br>
+            era darme cuenta de que te volviste parte de mi rutina.
+        </p>
+        <p>
+            Ahora siento que hay un hilo que a veces tiras y luego sueltas,<br>
+            un mensaje fugaz, una puerta que se queda entreabierta.<br>
+            Me pides que no me vaya, que me quede en la orilla,<br>
+            pero apareces a ratos, como una luz que a duras penas brilla.
+        </p>
+        <p>
+            No es un adiós, ni una queja lanzada al viento,<br>
+            es solo el peso de este extraño sentimiento.<br>
+            Estar sin estar, hablar sin decirnos nada,<br>
+            extrañando a quien tengo, a veces, a una pantalla de distancia.
+        </p>
+    </div>
+
+    <!-- El audio apunta exactamente al nombre del archivo que me pasaste -->
+    <audio id="bgMusic" src="Steve Lacy - Infrunami (Subtítulos en español) (Lyrics).mp3" loop></audio> 
+
+    <script>
+        document.getElementById('startBtn').addEventListener('click', function() {
+            this.style.display = 'none';
+            document.getElementById('content').style.display = 'block';
+            
+            // Reproducir el audio al hacer clic
+            const audio = document.getElementById('bgMusic');
+            audio.play().catch(error => {
+                console.error("Error al reproducir el audio:", error);
+            });
+        });
+    </script>
+</body>
+</html>
